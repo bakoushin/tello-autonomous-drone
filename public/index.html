@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Tello</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="loading fullscreen">
+      <div id="loading-header" class="loading-header">Loading</div>
+      <div id="loading-details" class="loading-details">Downloading assets</div>
+    </div>
+    <video
+      id="video"
+      class="fullscreen opaque"
+      autoplay
+      muted
+      playsinline
+    ></video>
+    <canvas id="telemetry" class="fullscreen opaque"></canvas>
+    <canvas
+      id="tracking"
+      width="960"
+      height="720"
+      class="fullscreen opaque"
+    ></canvas>
+    <div id="controls" class="controls opaque">
+      <button id="keyboard-button" class="button" title="Keyboard Layout">
+        <img
+          src="assets/keyboard-icon.svg"
+          class="button-icon"
+          alt="Keyboard Layout"
+        />
+      </button>
+      <button
+        id="fullscreen-button"
+        class="button"
+        title="Toggle Fullscreen Mode"
+      >
+        <img
+          src="assets/fullscreen-icon.svg"
+          class="button-icon"
+          alt="Togle Fullscreen Mode"
+        />
+      </button>
+    </div>
+    <div id="keyboard" class="hints hidden">
+      <img class="hint-image" src="assets/keyboard.svg" />
+    </div>
+    <script src="drone.js"></script>
+    <script src="video.js"></script>
+    <script src="telemetry.js"></script>
+    <script src="recorder.js"></script>
+    <script src="keyboard.js"></script>
+    <script src="fullscreen.js"></script>
+    <script src="hints.js"></script>
+    <script src="vendor/tfjs-core.js"></script>
+    <script src="vendor/tfjs-converter.js"></script>
+    <script src="vendor/tfjs-backend-webgl.js"></script>
+    <script src="vendor/pose-detection.js"></script>
+    <script src="vendor/simple-pid.js"></script>
+    <script src="vendor/kalman.js"></script>
+    <script src="tracking.js"></script>
+  </body>
+</html>

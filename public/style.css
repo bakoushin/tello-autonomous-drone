@@ -1,0 +1,174 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  user-select: none;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.fullscreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: opacity;
+  transition: opacity 0.5s;
+}
+
+.hints {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8vmax;
+  z-index: 10;
+}
+
+.hints::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000;
+  opacity: 0.5;
+  z-index: -1;
+  animation: darken 0.2s;
+  will-change: opacity;
+}
+
+@keyframes darken {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+
+.hint-image {
+  flex: 1 1;
+  animation: appear 0.2s;
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+@keyframes appear {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.loading-header {
+  color: #fff;
+  font-family: Courier, 'Courier New', monospace;
+  font-size: 5vmax;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  animation: blinker 1s infinite;
+  padding-top: 1.2vmax;
+}
+
+.loading-details {
+  color: #fff;
+  font-family: Courier, 'Courier New', monospace;
+  font-size: 1.2vmax;
+  line-height: 1.2vmax;
+  text-transform: uppercase;
+  opacity: 0.33;
+}
+
+@keyframes blinker {
+  from {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.controls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.button {
+  background: none;
+  outline: none;
+  border: none;
+  margin: 1vmax;
+  padding: 0;
+  height: 5vmax;
+  min-width: 40px;
+  min-height: 40px;
+  cursor: pointer;
+  will-change: transform;
+  transform: scale(0.9);
+  transition: transform 0.05s ease-out;
+}
+@media (hover: hover) {
+  .button:hover {
+    animation: scaler 0.3s;
+  }
+}
+
+@keyframes scaler {
+  from {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.9);
+  }
+}
+
+.button-icon {
+  height: 100%;
+  max-width: 100%;
+  pointer-events: none;
+}
+
+.opaque {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hidden {
+  display: none;
+}
